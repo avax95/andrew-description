@@ -12,7 +12,7 @@ const houseType = [
   'CAMPER', 'EARTH HOUSE', 'DOME HOUSE', 'TREE HOUSE', 'ENTIRE CABIN', 'ENTIRE HOUSE',
   'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT',
 ];
-
+const titleType = [`It's Alright..`, `Kind of Clean`, `It's like a Motel 6`]
 const ipsum = [
   'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
   'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
@@ -54,14 +54,15 @@ const randGen = (min, max) => {
 const sentenceMake = (n) => {
   // const paragraph = ipsum.join(" ");
   let sentence = "";
-  for (var i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     sentence += (ipsum[i]+ " ");
   }
   return sentence;
 }
 
 let main = [];
-for (var i = 0; i < 10000000; i++) {
+let hlight = [];
+for (let i = 1; i < 10000000; i++) {
   let owner = faker.name.firstName();
   let ownerPicture_Url = "some url";
   let propertyType = houseType[randGen(0,15)];
@@ -91,7 +92,7 @@ for (var i = 0; i < 10000000; i++) {
   let write = `${i},${owner}, ${ownerPicture_Url}, ${propertyType}, ${title}, ${score}, ${location}, ${numberOfGuest}, ${numberOfRooms}, ${numberOfBeds}, ${numberOfBaths}, ${numberOfViews}, ${numberOfViews}, ${smoking}, ${petSuitable}, ${partiesOrEvents}, ${noSafeForChildrenUnder}, ${checkInStartTime}, ${checkInEndTime}, ${checkOutTime}, ${selfCheckInWithLockBox}, ${rules}, ${rulestoAcknowledge}, ${cancellationType}, ${cancellationSummary}, ${nightsOfStayVary}, ${nightsOfMinimumStay}, ${daysFromLastUpdate}`;
   main.push(write);
   if (main.length === 50000) {
-    fs.appendFileSync(path.join(__dirname, `../heavySink/storageData`), chunk.join(`\n`), (err) => {
+    fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable`), chunk.join(`\n`), (err) => {
       if (err) {
         throw err;
       }
@@ -99,6 +100,20 @@ for (var i = 0; i < 10000000; i++) {
     main = [];
   }
   
+
+  let id = randGen(1, 10000000);
+  let title = titleType[randGen(0,2)];
+  let hcomment = sentenceMake(20);
+  let hwrite = `${id}, ${title}, ${hcomment}`;
+  hlight.push(hwrite);
+  if (hlight.length === 50000) {
+    fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight, (err) => {
+      if (err) {
+        throw err;
+      }
+    });
+    hlight = [];
+  }
 }
 // db.query(`INSERT INTO rooms (numberOfGuest) VALUES (${i})`, function(err, res) {
   //   if (err) {
