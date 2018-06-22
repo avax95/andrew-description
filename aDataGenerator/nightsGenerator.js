@@ -66,30 +66,31 @@ const sentenceMake = (n) => {
 // nightOfMinStay num
 
 const generate = () => {
-  for (var j = 0; j < 10000000; j++) {
-    let output = [];
-    let count = 0;
-    for (let i = 0; i < randomInteger(0, 3); i += 1) {
-      const obj = {
-        startDate: new Date(2018, 7 + count, randomInteger(1, 15)),
-        endDate: new Date(2018, 7 + count + 1, randomInteger(16, 30)),
-        nightsOfMinimumStay: randomInteger(4, 6),
-      };
-      output.push(obj);
+  let output = [];
+  let count = 0;
+  for (var i = 0; i < 10000000; i++) {
+    for (let j = 0; j < randGen(0, 3); j += 1) {
+      let startDate = new Date(2018, 7 + count, randGen(1, 15));
+      let endDate = new Date(2018, 7 + count + 1, randGen(16, 30));
+      let nightsOfMinimumStay = randGen(4, 6);
+      output.push(startDate);
+      output.push(endDate);
+      output.push(nightsOfMinimumStay);
       count += 1;
-      count += randomInteger(1, 2);
+      count += randGen(1, 2);
     }
     count = 0;
     // return output;
-    if (output.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/nightsMinTable`), (err) => {
+    if (output.length === 10000) {
+      console.log("entered");
+      fs.appendFileSync(path.join(__dirname, `../heavySink/nightsMinTable`), output.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
       output = [];
     }
-    if (i % 500000 === 0) {
+    if (i % 1000000 === 0) {
       console.log(i);
     }
   }
@@ -97,4 +98,4 @@ const generate = () => {
 
 console.time("Start");
 generate();
-console.time("Start");
+console.timeEnd("Start");
