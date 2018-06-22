@@ -120,8 +120,7 @@ for (let i = 1; i < 10000000; i++) {
   }
 
   let dId = randGen(1,10000000);
-  let 
-  let deswrite = `${}`
+  let deswrite = `${i}, ${optionalDescription}, ${sentenceMake(20)}`;
   if (descriptionchunk.length === 50000) {
     fs.appendFileSync(path.join(__dirname, `../heavySink/descriptionTable`), descriptionchunk.join(`\n`),(err) => {
       if (err) {
