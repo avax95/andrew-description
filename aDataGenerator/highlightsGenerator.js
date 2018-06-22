@@ -60,56 +60,14 @@ const sentenceMake = (n) => {
   }
   return sentence;
 }
-
-let main = [];
 let hlight = [];
-let descriptionchunk = [];
 for (let i = 1; i < 10000000; i++) {
-  let owner = faker.name.firstName();
-  let ownerPicture_Url = "some url";
-  let propertyType = houseType[randGen(0,15)];
-  let title = ipsum[randGen(3, 10)];
-  let score = randGen(50,100);
-  let location = faker.address.city();
-  let numberOfGuest = randGen(1,5);
-  let numberOfRooms = randGen(1,3);
-  let numberOfBeds = randGen(1,3);
-  let numberOfBaths = randGen(1,3);
-  let numberOfViews = randGen(5, 400);
-  let smoking = TF[randGen(0,1)];
-  let petSuitable = TF[randGen(0,1)];
-  let partiesOrEvents = TF[randGen(0,1)];
-  let noSafeForChildrenUnder = randGen(1,10);
-  let checkInStartTime = randGen(7,5);
-  let checkInEndTime = randGen(12, 5);
-  let checkOutTime = randGen(12,5);
-  let selfCheckInWithLockBox = TF[randGen(0,1)];
-  let rules = sentenceMake(150);
-  let rulestoAcknowledge = sentenceMake(30);
-  let cancellationType = randGen(1,5);
-  let cancellationSummary = sentenceMake(40);
-  let nightsOfStayVary = TF[randGen(0,1)];
-  let nightsOfMinimumStay = randGen(2,4);
-  let daysFromLastUpdate = randGen(1,20);
-  let write = `${i},${owner}, ${ownerPicture_Url}, ${propertyType}, ${title}, ${score}, ${location}, ${numberOfGuest}, ${numberOfRooms}, ${numberOfBeds}, ${numberOfBaths}, ${numberOfViews}, ${numberOfViews}, ${smoking}, ${petSuitable}, ${partiesOrEvents}, ${noSafeForChildrenUnder}, ${checkInStartTime}, ${checkInEndTime}, ${checkOutTime}, ${selfCheckInWithLockBox}, ${rules}, ${rulestoAcknowledge}, ${cancellationType}, ${cancellationSummary}, ${nightsOfStayVary}, ${nightsOfMinimumStay}, ${daysFromLastUpdate}`;
-  main.push(write);
-  if (main.length === 50000) {
-    fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable`), main.join(`\n`), (err) => {
-      if (err) {
-        throw err;
-      }
-    });
-    main = [];
-  }
-  
-
-  // let id = randGen(1, 10000000);
-  for (var j = 0; j < 3; j++) {
-    let htitle = titleType[j];
-    let hcomment = sentenceMake(20);
-    let hwrite = `${i}, ${htitle}, ${hcomment}`;
-    hlight.push(hwrite);
-  }
+  let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
+  let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
+  let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
+  hlight.push(hwrite1);
+  hlight.push(hwrite2);
+  hlight.push(hwrite3);
   if (hlight.length === 50000) {
     fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
       if (err) {
@@ -118,21 +76,7 @@ for (let i = 1; i < 10000000; i++) {
     });
     hlight = [];
   }
-
-  let dId = randGen(1,10000000);
-  let deswrite = `${i}, ${optionalDescription}, ${sentenceMake(20)}`;
-  if (descriptionchunk.length === 50000) {
-    fs.appendFileSync(path.join(__dirname, `../heavySink/descriptionTable`), descriptionchunk.join(`\n`),(err) => {
-      if (err) {
-        throw err;
-      }
-    });
-    descriptionchunk = [];
+  if (i % 50000 === 0) {
+    console.log(i);
   }
 }
-// db.query(`INSERT INTO rooms (numberOfGuest) VALUES (${i})`, function(err, res) {
-  //   if (err) {
-  //     throw err;
-  //   }
-  // });
-//db.end(); 
