@@ -63,12 +63,12 @@ const sentenceMake = (n) => {
 let hlight = [];
 for (let i = 1; i < 10000000; i++) {
   let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
-  let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
-  let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
+  // let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
+  // let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
   hlight.push(hwrite1);
-  hlight.push(hwrite2);
-  hlight.push(hwrite3);
-  if (hlight.length === 50000) {
+  // hlight.push(hwrite2);
+  // hlight.push(hwrite3);
+  if (hlight.length === 500000) {
     fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
       if (err) {
         throw err;
@@ -76,7 +76,45 @@ for (let i = 1; i < 10000000; i++) {
     });
     hlight = [];
   }
-  if (i % 50000 === 0) {
-    console.log(i);
+  if (i % 500000=== 0) {
+    console.log("i",i);
+  }
+}
+for (let i = 1; i < 10000000; i++) {
+  // let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
+  let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
+  // let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
+  // hlight.push(hwrite1);
+  hlight.push(hwrite2);
+  // hlight.push(hwrite3);
+  if (hlight.length === 500000) {
+    fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+      if (err) {
+        throw err;
+      }
+    });
+    hlight = [];
+  }
+  if (i % 500000=== 0) {
+    console.log("j",i);
+  }
+}
+for (let i = 1; i < 10000000; i++) {
+  // let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
+  // let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
+  let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
+  // hlight.push(hwrite1);
+  // hlight.push(hwrite2);
+  hlight.push(hwrite3);
+  if (hlight.length === 500000) {
+    fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+      if (err) {
+        throw err;
+      }
+    });
+    hlight = [];
+  }
+  if (i % 500000=== 0) {
+    console.log("k",i);
   }
 }
