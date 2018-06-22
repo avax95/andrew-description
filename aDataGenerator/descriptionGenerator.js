@@ -5,15 +5,9 @@ const path = require('path');
 const faker = require('faker');
 
 const connectionString = key.connect;
-const db = new pg.Client(connectionString);
-// db.connect();
 const generate = () => {
-  const houseType = [
-    'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE LOFT',
-    'CAMPER', 'EARTH HOUSE', 'DOME HOUSE', 'TREE HOUSE', 'ENTIRE CABIN', 'ENTIRE HOUSE',
-    'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT',
-  ];
   const titleType = [`It's Alright..`, `Kind of Clean`, `It's like a Motel 6`];
+  const optionalDescription = [`Minor concerns..`, `Something I noticed`, `Hmm.`, `It's alright`];
   const ipsum = [
     'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
     'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
@@ -59,47 +53,47 @@ const generate = () => {
     }
     return sentence;
   }
-  let hlight = [];
+  let descriptionChunk = [];
   for (let i = 1; i < 10000000; i++) {
-    let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
-    hlight.push(hwrite1);
-    if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+    let descript1 = `${i}, ${optionalDescription[0]}, ${sentenceMake(30)}`;
+    descriptionChunk.push(descript1);
+    if (descriptionChunk.length === 500000) {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      hlight = [];
+      descriptionChunk = [];
     }
-    if (i % 500000=== 0) {
+    if (i % 500000 === 0) {
       console.log("i",i);
     }
   }
   for (let i = 1; i < 10000000; i++) {
-    let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
-    hlight.push(hwrite2);
-    if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+    let descript2 = `${i}, ${optionalDescription[1]}, ${sentenceMake(30)}`;
+    descriptionChunk.push(descript2);
+    if (descriptionChunk.length === 500000) {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      hlight = [];
+      descriptionChunk = [];
     }
-    if (i % 500000=== 0) {
+    if (i % 500000 === 0) {
       console.log("j",i);
     }
   }
   for (let i = 1; i < 10000000; i++) {
-    let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
-    hlight.push(hwrite3);
-    if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+    let descript3 = `${i}, ${optionalDescription[2]}, ${sentenceMake(30)}`;
+    descriptionChunk.push(descript3);
+    if (descriptionChunk.length === 500000) {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      hlight = [];
+      descriptionChunk = [];
     }
     if (i % 500000=== 0) {
       console.log("k",i);
