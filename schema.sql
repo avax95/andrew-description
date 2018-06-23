@@ -13,7 +13,9 @@ CREATE TABLE description(
 DROP TABLE IF EXISTS amenities;
 CREATE TABLE amenities(
   id SERIAL PRIMARY KEY,
-  item SMALLINT,
+  roomid INT,
+  title CHAR(50),
+  item CHAR(50),
   description TEXT
 );
 DROP TABLE IF EXISTS nightsOfMinimumStayForDateRange;
@@ -58,4 +60,4 @@ CREATE TABLE rooms(
   amenities INT REFERENCES amenities(id) ON UPDATE CASCADE ON DELETE CASCADE,
   nightsOfMinimumStayForDateRange INT REFERENCES nightsOfMinimumStayForDateRange(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
+ 

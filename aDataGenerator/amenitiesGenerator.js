@@ -71,7 +71,7 @@ const generate = () => {
     let amenwrite = `${i},${title},${item},${description}`;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.txt`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -89,7 +89,7 @@ const generate = () => {
     let amenwrite = `${i},${title},${item},${description}`;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.txt`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
