@@ -2,3 +2,5 @@
 -- FROM '../heavySink/mainTable';
 
 \COPY amenities(roomid, title, item, description) FROM '../heavySink/amenitiesTable.csv' DELIMITER ',';
+
+\COPY description(roomid, title, comment) FROM '../heavySink/descriptionTable.csv' DELIMITER ',';

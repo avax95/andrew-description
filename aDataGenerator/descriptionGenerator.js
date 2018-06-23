@@ -58,12 +58,17 @@ const generate = () => {
     let descript1 = `${i},${optionalDescription[0]},${sentenceMake(30)}`;
     descriptionChunk.push(descript1);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
     }
     if (i % 500000 === 0) {
       console.log("i",i);
@@ -73,12 +78,17 @@ const generate = () => {
     let descript2 = `${i},${optionalDescription[1]},${sentenceMake(30)}`;
     descriptionChunk.push(descript2);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
     }
     if (i % 500000 === 0) {
       console.log("j",i);
@@ -88,12 +98,17 @@ const generate = () => {
     let descript3 = `${i},${optionalDescription[2]},${sentenceMake(30)}`;
     descriptionChunk.push(descript3);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
     }
     if (i % 500000=== 0) {
       console.log("k",i);

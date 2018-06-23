@@ -7,6 +7,7 @@ CREATE TABLE highlights(
 DROP TABLE IF EXISTS description;
 CREATE TABLE description(
   id SERIAL PRIMARY KEY,
+  roomid INT,
   title CHAR(50),
   comment TEXT
 );

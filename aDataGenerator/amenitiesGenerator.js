@@ -77,6 +77,11 @@ const generate = () => {
         }
       });
       amenChunk = [];
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
     }
     if (i%500000 === 0) {
       console.log(i);
@@ -95,6 +100,11 @@ const generate = () => {
         }
       });
       amenChunk = [];
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
     }
     if (i%500000 === 0) {
       console.log(i);
