@@ -64,7 +64,7 @@ const sentenceMake = (n) => {
 }
 let amenChunk = [];
 const generate = () => {
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
@@ -87,7 +87,7 @@ const generate = () => {
       console.log(i);
     }
   }
-  for (let i = 0; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);

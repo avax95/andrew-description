@@ -1,12 +1,7 @@
-const pg = require('pg');
-const key = require('../config.js');
 const fs = require('fs');
 const path = require('path');
-const faker = require('faker');
 
-const connectionString = key.connect;
 const generate = () => {
-  const titleType = [`It's Alright..`, `Kind of Clean`, `It's like a Motel 6`];
   const optionalDescription = [`Minor concerns..`, `Something I noticed`, `Hmm.`, `It's alright`];
   const ipsum = [
     'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
@@ -44,7 +39,7 @@ const generate = () => {
   const randGen = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   const sentenceMake = (n) => {
     let sentence = "";
@@ -54,7 +49,7 @@ const generate = () => {
     return sentence;
   }
   let descriptionChunk = [];
-  for (let i = 1; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let descript1 = `${i},${optionalDescription[0]},${sentenceMake(30)}`;
     descriptionChunk.push(descript1);
     if (descriptionChunk.length === 500000) {
@@ -74,7 +69,7 @@ const generate = () => {
       console.log("i",i);
     }
   }
-  for (let i = 1; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let descript2 = `${i},${optionalDescription[1]},${sentenceMake(30)}`;
     descriptionChunk.push(descript2);
     if (descriptionChunk.length === 500000) {
@@ -94,7 +89,7 @@ const generate = () => {
       console.log("j",i);
     }
   }
-  for (let i = 1; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let descript3 = `${i},${optionalDescription[2]},${sentenceMake(30)}`;
     descriptionChunk.push(descript3);
     if (descriptionChunk.length === 500000) {

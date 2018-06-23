@@ -6,13 +6,7 @@ const faker = require('faker');
 
 const connectionString = key.connect;
 const db = new pg.Client(connectionString);
-// db.connect();
 const generate = () => {
-  const houseType = [
-    'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE LOFT',
-    'CAMPER', 'EARTH HOUSE', 'DOME HOUSE', 'TREE HOUSE', 'ENTIRE CABIN', 'ENTIRE HOUSE',
-    'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT',
-  ];
   const titleType = [`It's Alright..`, `Kind of Clean`, `It's like a Motel 6`];
   const ipsum = [
     'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
@@ -50,7 +44,7 @@ const generate = () => {
   const randGen = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    return Math.floor(Math.random() * (max - min + 1)) + min;  
   }
   const sentenceMake = (n) => {
     let sentence = "";
@@ -60,49 +54,64 @@ const generate = () => {
     return sentence;
   }
   let hlight = [];
-  for (let i = 1; i < 10000000; i++) {
-    let hwrite1 = `${i}, ${titleType[0]}, ${sentenceMake(10)}`;
+  for (let i = 1; i <= 10000000; i++) {
+    let hwrite1 = `${i},${titleType[0]},${sentenceMake(10)}`;
     hlight.push(hwrite1);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
       });
       hlight = [];
     }
-    if (i % 500000=== 0) {
-      console.log("i",i);
+    if (i % 500000 === 0) {
+      console.log("-30%",i);
     }
   }
-  for (let i = 1; i < 10000000; i++) {
-    let hwrite2 = `${i}, ${titleType[1]}, ${sentenceMake(10)}`;
+  for (let i = 1; i <= 10000000; i++) {
+    let hwrite2 = `${i},${titleType[1]},${sentenceMake(10)}`;
     hlight.push(hwrite2);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
       });
       hlight = [];
     }
-    if (i % 500000=== 0) {
-      console.log("j",i);
+    if (i % 500000 === 0) {
+      console.log("30%+",i);
     }
   }
-  for (let i = 1; i < 10000000; i++) {
-    let hwrite3 = `${i}, ${titleType[2]}, ${sentenceMake(10)}`;
+  for (let i = 1; i <= 10000000; i++) {
+    let hwrite3 = `${i},${titleType[2]},${sentenceMake(10)}`;
     hlight.push(hwrite3);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
       });
       hlight = [];
     }
-    if (i % 500000=== 0) {
-      console.log("k",i);
+    if (i % 500000 === 0) {
+      console.log("60%+",i);
     }
   }
 }

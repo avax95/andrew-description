@@ -12,8 +12,6 @@ const houseType = [
   'CAMPER', 'EARTH HOUSE', 'DOME HOUSE', 'TREE HOUSE', 'ENTIRE CABIN', 'ENTIRE HOUSE',
   'ENTIRE APARTMENT', 'PRIVATE ROOM', 'ENTIRE CABIN', 'ENTIRE HOUSE', 'ENTIRE APARTMENT',
 ];
-const titleType = [`It's Alright..`, `Kind of Clean`, `It's like a Motel 6`];
-const optionalDescription = [`Minor concerns..`, `Something I noticed`, `Hmm.`, `It's alright`];
 const ipsum = [
   'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
   'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
@@ -62,10 +60,8 @@ const sentenceMake = (n) => {
 }
 
 let main = [];
-let hlight = [];
-let descriptionchunk = [];
 const generate = () => {
-  for (let i = 1; i < 10000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     let owner = faker.name.firstName();
     let ownerPicture_Url = "some url";
     let propertyType = houseType[randGen(0,15)];
@@ -77,6 +73,7 @@ const generate = () => {
     let numberOfBeds = randGen(1,3);
     let numberOfBaths = randGen(1,3);
     let numberOfViews = randGen(5, 400);
+    let descriptionSummary = sentenceMake(20);
     let smoking = TF[randGen(0,1)];
     let petSuitable = TF[randGen(0,1)];
     let partiesOrEvents = TF[randGen(0,1)];
@@ -92,10 +89,15 @@ const generate = () => {
     let nightsOfStayVary = TF[randGen(0,1)];
     let nightsOfMinimumStay = randGen(2,4);
     let daysFromLastUpdate = randGen(1,20);
-    let write = `${i},${owner},${ownerPicture_Url},${propertyType},${title},${score},${location},${numberOfGuest},${numberOfRooms},${numberOfBeds},${numberOfBaths},${numberOfViews},${numberOfViews},${smoking},${petSuitable},${partiesOrEvents},${noSafeForChildrenUnder},${checkInStartTime},${checkInEndTime},${checkOutTime},${selfCheckInWithLockBox},${rules},${rulestoAcknowledge},${cancellationType},${cancellationSummary},${nightsOfStayVary},${nightsOfMinimumStay},${daysFromLastUpdate}`;
+    let write = `${owner},${ownerPicture_Url},${propertyType},${title},${score},${location},${numberOfGuest},${numberOfRooms},${numberOfBeds},${numberOfBaths},${numberOfViews},${descriptionSummary},${smoking},${petSuitable},${partiesOrEvents},${noSafeForChildrenUnder},${checkInStartTime},${checkInEndTime},${checkOutTime},${selfCheckInWithLockBox},${rules},${rulestoAcknowledge},${cancellationType},${cancellationSummary},${nightsOfStayVary},${nightsOfMinimumStay},${daysFromLastUpdate}`;
     main.push(write);
     if (main.length === 10000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable`), main.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable.csv`), main.join(`\n`), (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+      fs.appendFileSync(path.join(__dirname, '../heavySink/mainTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
