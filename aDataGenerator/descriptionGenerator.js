@@ -55,10 +55,10 @@ const generate = () => {
   }
   let descriptionChunk = [];
   for (let i = 1; i < 10000000; i++) {
-    let descript1 = `${i}, ${optionalDescription[0]}, ${sentenceMake(30)}`;
+    let descript1 = `${i},${optionalDescription[0]},${sentenceMake(30)}`;
     descriptionChunk.push(descript1);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
@@ -70,10 +70,10 @@ const generate = () => {
     }
   }
   for (let i = 1; i < 10000000; i++) {
-    let descript2 = `${i}, ${optionalDescription[1]}, ${sentenceMake(30)}`;
+    let descript2 = `${i},${optionalDescription[1]},${sentenceMake(30)}`;
     descriptionChunk.push(descript2);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
@@ -85,10 +85,10 @@ const generate = () => {
     }
   }
   for (let i = 1; i < 10000000; i++) {
-    let descript3 = `${i}, ${optionalDescription[2]}, ${sentenceMake(30)}`;
+    let descript3 = `${i},${optionalDescription[2]},${sentenceMake(30)}`;
     descriptionChunk.push(descript3);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.txt`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }

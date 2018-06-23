@@ -68,10 +68,10 @@ const generate = () => {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
-    let amenwrite = `${i}, ${title}, ${item}, ${description}`;
+    let amenwrite = `${i},${title},${item},${description}`;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.txt`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -86,10 +86,10 @@ const generate = () => {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
-    let amenwrite = `${i}, ${title}, ${item}, ${description}`;
+    let amenwrite = `${i},${title},${item},${description}`;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.txt`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
