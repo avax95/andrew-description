@@ -1,0 +1,8 @@
+config.js
+node_modules/
+amenitiesTable.csv
+descriptTable.csv
+hTable.csv
+mainTable.csv
+nightsMinTable.csv
+mainTableCass.csv
