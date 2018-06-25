@@ -89,15 +89,15 @@ const generate = () => {
     let nightsOfStayVary = TF[randGen(0,1)];
     let nightsOfMinimumStay = randGen(2,4);
     let daysFromLastUpdate = randGen(1,20);
-    let write = `${owner},${ownerPicture_Url},${propertyType},${title},${score},${location},${numberOfGuest},${numberOfRooms},${numberOfBeds},${numberOfBaths},${numberOfViews},${descriptionSummary},${smoking},${petSuitable},${partiesOrEvents},${noSafeForChildrenUnder},${checkInStartTime},${checkInEndTime},${checkOutTime},${selfCheckInWithLockBox},${rules},${rulestoAcknowledge},${cancellationType},${cancellationSummary},${nightsOfStayVary},${nightsOfMinimumStay},${daysFromLastUpdate}`;
+    let write = `${i},${owner},${ownerPicture_Url},${propertyType},${title},${score},${location},${numberOfGuest},${numberOfRooms},${numberOfBeds},${numberOfBaths},${numberOfViews},${descriptionSummary},${smoking},${petSuitable},${partiesOrEvents},${noSafeForChildrenUnder},${checkInStartTime},${checkInEndTime},${checkOutTime},${selfCheckInWithLockBox},${rules},${rulestoAcknowledge},${cancellationType},${cancellationSummary},${nightsOfStayVary},${nightsOfMinimumStay},${daysFromLastUpdate}`;
     main.push(write);
     if (main.length === 10000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable.csv`), main.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTableCass.csv`), main.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/mainTable.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/mainTableCass.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }

@@ -30,14 +30,14 @@ DROP TABLE IF EXISTS nightsOfMinimumStayForDateRange;
 CREATE TABLE nightsOfMinimumStayForDateRange(
   id UUID,
   roomid int,
-  startDate varchar,
-  endDate varchar,
-  nightOfMinStay int,
+  "startDate" varchar,
+  "endDate" varchar,
+  "nightOfMinStay" int,
   PRIMARY KEY (roomid)
 );
 DROP TABLE IF EXISTS rooms;
 CREATE TABLE rooms(
-  id UUID,
+  id int,
   owner varchar,
   "ownerPicture_Url" text,
   "propertyType" text,
