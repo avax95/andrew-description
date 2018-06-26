@@ -28,31 +28,43 @@ const grabData = function(id, callback) {
         if (err) {
           throw(err);
         }
-        giantObj.push(results.rows);
-        // console.log(giantObj);
-        resolve(results.rows);
+        // giantObj.push(results.rows);
+        let highlights = results.rows.map(function(el) {
+          return {title: el.title_high, comment: el.comment_high};
+        });
+        rooms["highlights"] = highlights;
+        // console.log(rooms);
+        resolve(rooms);
       });
     })
   })
-  .then(function(highlights) {
+  .then(function(rooms) {
     return new Promise(function(resolve, reject) {
       db.query(qDes, function(err, results) {
         if (err) {
           throw err;
         }
-        giantObj.push(results.rows);
-        resolve(results.rows);
+        // giantObj.push(results.rows);
+        let description = results.rows.map(function(el, i) {
+          return {title: el.title_des, comment: el.comment_des};
+        });
+        rooms["description"] = description;
+        resolve(rooms);
       });
     });
   })
-  .then(function(description) {
+  .then(function(rooms) {
     return new Promise(function(resolve, reject) {
       db.query(qAmen, function(err, results) {
         if (err) {
           throw err;
         }
-        giantObj.push(results.rows);
-        resolve(results.rows);
+        // giantObj.push(results.rows);
+        console.log("once",results.rows)
+        let amenities = results.rows.map(function(el) {
+          // return {item: el.}
+        });
+        // resolve(rooms);
       });
     });
   })
@@ -63,7 +75,8 @@ const grabData = function(id, callback) {
           throw err;
         }
         giantObj.push(results.rows);
-        callback(giantObj);
+        callback(rooms);
+        // console.log(giantObj);
         resolve(results.row);
       });
     });
