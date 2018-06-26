@@ -54,16 +54,18 @@ const generate = () => {
     return sentence;
   }
   let hlight = [];
+  let j = 1;
   for (let i = 1; i <= 10000000; i++) {
-    let hwrite1 = `${i},${titleType[0]},${sentenceMake(10)}`;
+    let hwrite1 = `${i},${j},${titleType[0]},${sentenceMake(10)}`;
+    j++;
     hlight.push(hwrite1);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTableCass.csv`), hlight.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTableCass.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
@@ -74,16 +76,18 @@ const generate = () => {
       console.log("-30%",i);
     }
   }
-  for (let i = 1; i <= 10000000; i++) {
-    let hwrite2 = `${i},${titleType[1]},${sentenceMake(10)}`;
+  let k = 1;
+  for (let i = 10000001; i <= 20000000; i++) {
+    let hwrite2 = `${i},${k},${titleType[1]},${sentenceMake(10)}`;
+    k++;
     hlight.push(hwrite2);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTableCass.csv`), hlight.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTableCass.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
@@ -94,16 +98,18 @@ const generate = () => {
       console.log("30%+",i);
     }
   }
-  for (let i = 1; i <= 10000000; i++) {
-    let hwrite3 = `${i},${titleType[2]},${sentenceMake(10)}`;
+  let l = 1;
+  for (let i = 20000001; i <= 30000000; i++) {
+    let hwrite3 = `${i},${l},${titleType[2]},${sentenceMake(10)}`;
+    l++;
     hlight.push(hwrite3);
     if (hlight.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/hTable.csv`), hlight.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/hTableCass.csv`), hlight.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/hTable.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/hTableCass.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }

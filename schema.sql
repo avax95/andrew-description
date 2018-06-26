@@ -1,33 +1,37 @@
 DROP TABLE IF EXISTS highlights;
 CREATE TABLE highlights(
   id SERIAL PRIMARY KEY,
-  roomid INT,
-  title CHAR(50),
-  comment TEXT
+  roomid_high INT,
+  title_high CHAR(50),
+  comment_high TEXT
 );
+CREATE INDEX room_idh ON highlights(roomid_high);
 DROP TABLE IF EXISTS description;
 CREATE TABLE description(
   id SERIAL PRIMARY KEY,
-  roomid INT,
-  title CHAR(50),
-  comment TEXT
+  roomid_des INT,
+  title_des CHAR(50),
+  comment_des TEXT
 );
+CREATE INDEX room_idd ON description(roomid_des);
 DROP TABLE IF EXISTS amenities;
 CREATE TABLE amenities(
   id SERIAL PRIMARY KEY,
-  roomid INT,
-  title CHAR(50),
-  item CHAR(50),
-  description TEXT
+  roomid_a INT,
+  title_a CHAR(50),
+  item_a CHAR(50),
+  description_a TEXT
 );
+CREATE INDEX room_ida ON amenities(roomid_a);
 DROP TABLE IF EXISTS nightsOfMinimumStayForDateRange;
 CREATE TABLE nightsOfMinimumStayForDateRange(
   id SERIAL PRIMARY KEY,
-  roomid INT,
+  roomid_night INT,
   "startDate" CHAR(50),
   "endDate" CHAR(50),
   "nightOfMinStay" SMALLINT
 );
+CREATE INDEX room_idn ON nightsOfMinimumStayForDateRange(roomid_night);
 DROP TABLE IF EXISTS rooms;
 CREATE TABLE rooms(
   id SERIAL PRIMARY KEY,

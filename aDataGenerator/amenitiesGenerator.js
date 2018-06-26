@@ -63,21 +63,23 @@ const sentenceMake = (n) => {
   return sentence;
 }
 let amenChunk = [];
+let j = 1;
 const generate = () => {
   for (let i = 1; i <= 10000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
-    let amenwrite = `${i},${title},${item},${description}`;
+    let amenwrite = `${i},${j},${title},${item},${description}`;
+    j++;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
       amenChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -87,20 +89,22 @@ const generate = () => {
       console.log(i);
     }
   }
-  for (let i = 1; i <= 10000000; i++) {
+  let k = 1;
+  for (let i = 10000001; i <= 20000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
-    let amenwrite = `${i},${title},${item},${description}`;
+    let amenwrite = `${i},${k},${title},${item},${description}`;
+    k++;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
       amenChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
