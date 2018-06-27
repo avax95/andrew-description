@@ -84,7 +84,7 @@ const grabData = function(id, callback) {
           return {startDate: el.startDate, endDate: el.endDate, nightsOfMinimumStay: el.nightOfMinStay};
         });
         rooms[0]["nightsOfMinimumStayForDateRange"] = nights;
-        // console.log(rooms)
+        console.log(rooms[0])
         callback(rooms[0]);
       });
     });
