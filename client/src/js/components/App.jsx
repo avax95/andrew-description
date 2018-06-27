@@ -26,7 +26,7 @@ class App extends React.Component {
     let id = window.location.pathname;
     axios.get(`/room${id}`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const homeData = response.data;
         this.setState({ home: homeData });
       })
