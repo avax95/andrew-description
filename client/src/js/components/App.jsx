@@ -34,7 +34,13 @@ class App extends React.Component {
         console.error('error at clientfetching', err);
       });
   }
+  putHomeData(description) {
+    let id = window.location.pathname;
+    axios.put(`/room${id}/${description}`)
+      .then((response) => {
 
+      });
+  }
   
   render() {
     if (this.state.home) {
