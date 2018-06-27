@@ -24,14 +24,14 @@ CREATE TABLE amenities(
 );
 CREATE INDEX room_ida ON amenities(roomid_a);
 DROP TABLE IF EXISTS nightsOfMinimumStayForDateRange;
-CREATE TABLE nightsOfMinimumStayForDateRange(
+CREATE TABLE nightOfMinimumStayForDateRange(
   id SERIAL PRIMARY KEY,
   roomid_night INT,
   "startDate" CHAR(50),
   "endDate" CHAR(50),
   "nightOfMinStay" SMALLINT
 );
-CREATE INDEX room_idn ON nightsOfMinimumStayForDateRange(roomid_night);
+CREATE INDEX room_idn ON nightOfMinimumStayForDateRange(roomid_night);
 DROP TABLE IF EXISTS rooms;
 CREATE TABLE rooms(
   id SERIAL PRIMARY KEY,

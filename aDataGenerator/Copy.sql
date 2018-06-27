@@ -6,4 +6,4 @@
 -- -- 
 -- \COPY highlights(roomid_high, title_high, comment_high) FROM '../heavySink/hTable.csv' DELIMITER ',';
 
--- \COPY nightsOfMinimumStayForDateRange(roomid_night, "startDate", "endDate", "nightOfMinStay") FROM '../heavySink/nightsMinTable.csv' DELIMITER ',';
+\COPY nightOfMinimumStayForDateRange(roomid_night, "startDate", "endDate", "nightOfMinStay") FROM '../heavySink/nightsMinTable.csv' DELIMITER ',';

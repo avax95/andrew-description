@@ -11,7 +11,7 @@ const grabData = function(id, callback) {
   let qRoom = `SELECT * FROM rooms WHERE id = ${id}`;
   let qDes = `SELECT * FROM description WHERE roomid_des = ${id}`;
   let qAmen = `SELECT * FROM amenities WHERE roomid_a = ${id}`;
-  let qNight = `SELECT * FROM nightsOfMinimumStayForDateRange WHERE roomid_night = ${id}`;
+  let qNight = `SELECT * FROM nightOfMinimumStayForDateRange WHERE roomid_night = ${id}`;
   let giantObj;
   return new Promise (function(resolve, reject) {
     db.query(qRoom, function(err, results){
@@ -32,8 +32,7 @@ const grabData = function(id, callback) {
         let highlights = results.rows.map(function(el) {
           return {title: el.title_high, comment: el.comment_high};
         });
-        rooms["highlights"] = highlights;
-        // console.log(rooms);
+        rooms[0]["highlights"] = highlights;
         resolve(rooms);
       });
     })
@@ -48,7 +47,8 @@ const grabData = function(id, callback) {
         let description = results.rows.map(function(el, i) {
           return {title: el.title_des, comment: el.comment_des};
         });
-        rooms["description"] = description;
+        rooms[0]["description"] = description;
+        // console.log(rooms);
         resolve(rooms);
       });
     });
@@ -60,24 +60,32 @@ const grabData = function(id, callback) {
           throw err;
         }
         // giantObj.push(results.rows);
-        console.log("once",results.rows)
+        // console.log("once",rooms)
         let amenities = results.rows.map(function(el) {
-          // return {item: el.}
+          return {title: el.title_a, contents: [{item: el.item_a, description: el.description_a}]};
         });
-        // resolve(rooms);
+        rooms[0]["amenities"] = amenities;
+        // console.log(rooms[0]["amenities"]);
+        resolve(rooms);
       });
     });
   })
-  .then(function(amenities) {
+  .then(function(rooms) {
     return new Promise(function(resolve, reject) {
       db.query(qNight, function(err, results){
         if (err) {
           throw err;
         }
         giantObj.push(results.rows);
-        callback(rooms);
-        // console.log(giantObj);
-        resolve(results.row);
+        // callback(rooms);
+        // console.log(results.rows);
+        // console.log(rooms);
+        let nights = results.rows.map(function(el) {
+          return {startDate: el.startDate, endDate: el.endDate, nightsOfMinimumStay: el.nightOfMinStay};
+        });
+        rooms[0]["nightsOfMinimumStayForDateRange"] = nights;
+        // console.log(rooms)
+        callback(rooms[0]);
       });
     });
   })
