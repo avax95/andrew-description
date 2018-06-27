@@ -3,10 +3,6 @@ const bodyParser = require('body-parser');
 const roomsRoutes = require('./Rooms');
 const path = require ('path');
 const app = express();
-// app.use('/', function(req, res, next) {
-//   console.log("SERVER",req.url);
-//   next();
-// })
 app.use(bodyParser.json());
 
 app.use('/rooms/:id' ,express.static(path.join(__dirname, '../public')));
@@ -30,8 +26,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-
-
 
 
 const port = 8081;

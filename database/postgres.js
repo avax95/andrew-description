@@ -5,10 +5,6 @@ const connectionString = key.connect;
 const db = new pg.Client(connectionString);
 db.connect();
 const grabData = function(id, callback) {
-  // LEFT JOIN description ON rooms.id = description.roomid_des
-  // let q = `SELECT * FROM rooms
-  //          LEFT JOIN highlights ON rooms.id = highlights.roomid_high 
-  //          WHERE rooms.id = ${id}`;
   let qhigh = `SELECT * FROM highlights WHERE roomid_high = ${id}`;
   let qRoom = `SELECT * FROM rooms WHERE id = ${id}`;
   let qDes = `SELECT * FROM description WHERE roomid_des = ${id}`;
