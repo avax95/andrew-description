@@ -62,9 +62,5 @@ CREATE TABLE rooms(
   "nightsOfStayVary" BOOLEAN,
   "nightsOfMinimumStay" SMALLINT,
   "daysFromLastUpdate" SMALLINT
-  -- highlights INT REFERENCES highlights(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  -- description INT REFERENCES description(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  -- amenities INT REFERENCES amenities(id) ON UPDATE CASCADE ON DELETE CASCADE,
-  -- "nightsOfMinimumStayForDateRange" INT REFERENCES nightsOfMinimumStayForDateRange(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
  
