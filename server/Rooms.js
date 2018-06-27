@@ -11,6 +11,11 @@ router.get('/rooms/:id', (req, res) => {
     res.send(query);
   });
 });
+router.put('/rooms/:id/:description/:title', (req,res) => {
+  db.putData(req.params.id, req.params.description, req.params.title, (query) => {
+    res.send(query);
+  });
+});
 
 
 module.exports = router;
