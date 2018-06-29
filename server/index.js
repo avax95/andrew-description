@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const roomsRoutes = require('./Rooms');
@@ -9,7 +10,7 @@ app.use('/rooms/:id' ,express.static(path.join(__dirname, '../public')));
 
 app.use('/room', roomsRoutes);
 
-app.get('/favicon.ico', (req, res) => res.status(204));
+// app.get('/favicon.ico', (req, res) => res.status(204));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
