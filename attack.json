@@ -1,0 +1,33 @@
+{
+  "config": {
+    "target": "http://localhost:8081",
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalRate": 1
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "flow": [
+        {
+          "loop": [
+            {
+              "get": {
+                "url": "/rooms/{{$randomNumber(1,10000000)}}"
+              },
+              "count": 1
+            },
+            {
+              "get": {
+                "url": "/room/rooms/{{$randomNumber(1,10000000)}}"
+              },
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
