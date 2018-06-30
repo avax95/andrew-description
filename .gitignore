@@ -11,4 +11,6 @@ descriptTableCass.csv
 hTableCass.csv
 nightsMinTableCass.csv
 newrelic.js
+newrelic_agent.log
 dump.rdb
+output.json
