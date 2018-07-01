@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.use('/rooms/:id' ,express.static(path.join(__dirname, '../public')));
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 
 app.use('/room', roomsRoutes);
 
