@@ -1,8 +1,13 @@
 const pg = require('pg');
 const key = require('../config.js');
 
-const connectionString = key.connect;
-const db = new pg.Client(connectionString);
+const connectionObj = {
+  user: process.env.POST_USER,
+  host: process.env.POST_HOST,
+  database: process.env.POST_DATABASE,
+  port: process.env.POST_PORT,
+};
+const db = new pg.Client(connectionObj);
 db.connect();
 const grabData = (id, callback) => {
   const qhigh = `SELECT * FROM highlights WHERE roomid_high = ${id}`;
