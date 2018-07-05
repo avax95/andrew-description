@@ -65,7 +65,7 @@ const sentenceMake = (n) => {
 let amenChunk = [];
 let j = 1;
 const generate = () => {
-  for (let i = 1; i <= 10000000; i++) {
+  for (let i = 1; i <= 5000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
@@ -73,13 +73,13 @@ const generate = () => {
     j++;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
       amenChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -90,7 +90,7 @@ const generate = () => {
     }
   }
   let k = 1;
-  for (let i = 10000001; i <= 20000000; i++) {
+  for (let i = 5000001; i <= 10000000; i++) {
     let title = amenitiesSections[randGen(0,7)];
     let item = "someItem";
     let description = sentenceMake(20);
@@ -98,13 +98,13 @@ const generate = () => {
     k++;
     amenChunk.push(amenwrite);
     if (amenChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), amenChunk.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), amenChunk.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
       amenChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTableCass.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/amenitiesTable.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }

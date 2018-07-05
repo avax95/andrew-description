@@ -14,3 +14,5 @@ newrelic.js
 newrelic_agent.log
 dump.rdb
 output.json
+Dockerfile
+.dockerignore

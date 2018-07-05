@@ -61,7 +61,7 @@ const sentenceMake = (n) => {
 
 let main = [];
 const generate = () => {
-  for (let i = 1; i <= 10000000; i++) {
+  for (let i = 1; i <= 5000000; i++) {
     let owner = faker.name.firstName();
     let ownerPicture_Url = "some url";
     let propertyType = houseType[randGen(0,15)];
@@ -82,22 +82,22 @@ const generate = () => {
     let checkInEndTime = randGen(12, 5);
     let checkOutTime = randGen(12,5);
     let selfCheckInWithLockBox = TF[randGen(0,1)];
-    let rules = sentenceMake(150);
-    let rulestoAcknowledge = sentenceMake(30);
+    let rules = sentenceMake(10);
+    let rulestoAcknowledge = sentenceMake(20);
     let cancellationType = randGen(1,5);
-    let cancellationSummary = sentenceMake(40);
+    let cancellationSummary = sentenceMake(20);
     let nightsOfStayVary = TF[randGen(0,1)];
     let nightsOfMinimumStay = randGen(2,4);
     let daysFromLastUpdate = randGen(1,20);
     let write = `${i},${owner},${ownerPicture_Url},${propertyType},${title},${score},${location},${numberOfGuest},${numberOfRooms},${numberOfBeds},${numberOfBaths},${numberOfViews},${descriptionSummary},${smoking},${petSuitable},${partiesOrEvents},${noSafeForChildrenUnder},${checkInStartTime},${checkInEndTime},${checkOutTime},${selfCheckInWithLockBox},${rules},${rulestoAcknowledge},${cancellationType},${cancellationSummary},${nightsOfStayVary},${nightsOfMinimumStay},${daysFromLastUpdate}`;
     main.push(write);
     if (main.length === 10000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTableCass.csv`), main.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/mainTable.csv`), main.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/mainTableCass.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/mainTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }

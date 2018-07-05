@@ -50,18 +50,18 @@ const generate = () => {
   }
   let descriptionChunk = [];
   let j = 1;
-  for (let i = 1; i <= 10000000; i++) {
+  for (let i = 1; i <= 5000000; i++) {
     let descript1 = `${i},${j},${optionalDescription[0]},${sentenceMake(30)}`;
     j++;
     descriptionChunk.push(descript1);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -72,18 +72,18 @@ const generate = () => {
     }
   }
   let k = 1;
-  for (let i = 10000001; i <= 20000000; i++) {
+  for (let i = 5000001; i <= 10000000; i++) {
     let descript2 = `${i},${k},${optionalDescription[1]},${sentenceMake(30)}`;
     k++;
     descriptionChunk.push(descript2);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
@@ -94,18 +94,18 @@ const generate = () => {
     }
   }
   let l = 1;
-  for (let i = 20000001; i <= 30000000; i++) {
-    let descript3 = `${i},${l},${optionalDescription[2]},${sentenceMake(30)}`;
+  for (let i = 10000001; i <= 15000000; i++) {
+    let descript3 = `${i},${l},${optionalDescription[2]},${sentenceMake(15)}`;
     l++;
     descriptionChunk.push(descript3);
     if (descriptionChunk.length === 500000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), descriptionChunk.join(`\n`), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), descriptionChunk.join(`\n`), (err) => {
         if (err) {
           throw err;
         }
       });
       descriptionChunk = [];
-      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTableCass.csv`), ('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/descriptTable.csv`), ('\n'), (err) => {
         if (err) {
           throw err;
         }
