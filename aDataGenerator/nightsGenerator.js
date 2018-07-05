@@ -67,12 +67,12 @@ const generate = () => {
     l++;
     output.push(nightwrite);
     if (output.length === 10000) {
-      fs.appendFileSync(path.join(__dirname, `../heavySink/nightsMinTableCass.csv`), output.join('\n'), (err) => {
+      fs.appendFileSync(path.join(__dirname, `../heavySink/nightsMinTable.csv`), output.join('\n'), (err) => {
         if (err) {
           throw err;
         }
       });
-      fs.appendFileSync(path.join(__dirname, '../heavySink/nightsMinTableCass.csv'), '\n', (err) => {
+      fs.appendFileSync(path.join(__dirname, '../heavySink/nightsMinTable.csv'), '\n', (err) => {
         if (err) {
           throw err;
         }
