@@ -13,6 +13,15 @@ app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
 app.use('/room', roomsRoutes);
 
 // app.get('/favicon.ico', (req, res) => res.status(204));
+app.get('/loaderio-63665cdaefea36eff6fd881c3053d1cd/', (req, res) => {
+  res.send('loaderio-63665cdaefea36eff6fd881c3053d1cd');
+});
+app.get('loaderio-63665cdaefea36eff6fd881c3053d1cd.html', (req, res) => {
+  res.send('loaderio-63665cdaefea36eff6fd881c3053d1cd');
+});
+app.get('loaderio-63665cdaefea36eff6fd881c3053d1cd.txt', (req, res) => {
+  res.send('loaderio-63665cdaefea36eff6fd881c3053d1cd');
+});
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
